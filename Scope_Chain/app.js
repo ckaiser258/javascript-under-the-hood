@@ -1,3 +1,5 @@
+//Scope is where a variable is available in your code.
+
 //Function b() is sitting lexically in the global scope. Where myVar = 1
 function b() {
   console.log(myVar);
