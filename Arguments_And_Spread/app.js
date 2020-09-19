@@ -65,17 +65,16 @@ function greet5(firstname, lastname, language) {
 greet5()
 //Logs "Missing parameters!"
 
-function greet6(firstname, lastname, language) {
-
-    if (arguments.length === 0) {
-        console.log('Missing parameters!')
-        console.log('-----------')
-        return
-    }
+//Can use the spread to take extra parameters and wrap them into an array of the specified name.
+//It is the preferred way of dealing with various arguments.
+function greet6(firstname, lastname, language, ...something) {
 
     console.log(firstname)
     console.log(lastname)
     console.log(language)
-    console.log(arguments)
     console.log('-----------')
+    console.log(something)
 }
+
+greet6('John', 'Doe', 'es', '111 main st', 'new york')
+//Logs ["111 main st", "new york"] at the end.
