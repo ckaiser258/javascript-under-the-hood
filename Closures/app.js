@@ -80,3 +80,36 @@ fs2[0]()
 fs2[1]()
 fs2[2]()
 //Logs 0 1 2
+
+//Below ES6, we can use a separate execution context for each function being pushed into the array.
+//A parent scope that holds the current value of i as the loop goes.
+function buildFunctions3() {
+
+  var arr = []
+
+  for (var i = 0; i < 3; i++) {
+
+    //Can use an IIFE (Immediately Invoked Function Expression)
+    arr.push(
+      (function(j) {
+        return function() {
+          console.log(j)
+        }
+      }(i))
+      //Now the function is running each time through the loop.
+      //So each function has its own execution context.
+      //So j is stored in each execution context.
+      //And each time function(j) is invoked (which is immediately)
+      //It's passed the current value of i.
+      //It doesn't need to go up the scop chain anymore to find i.
+    )
+
+  }
+  return arr
+}
+
+var fs3 = buildFunctions3()
+
+fs3[0]()
+fs3[1]()
+fs3[2]()
