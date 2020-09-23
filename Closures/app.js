@@ -58,14 +58,14 @@ function buildFunctions2() {
 
   var arr = []
 
-  for (var i = 0; i < 3; i++) {
-    let j = i 
+  for (let i = 0; i < 3; i++) {
+    //Uses let instead of var.
     //Let is scoped into the block (the curly braces).
-    //So each time the for loop runs, we are making j a new variable in memory.
+    //So each time the for loop runs, we are making i a new variable in memory.
 
     arr.push(
       function() {
-        console.log(j)
+        console.log(i)
       }
 
     )
@@ -79,3 +79,4 @@ var fs2 = buildFunctions2()
 fs2[0]()
 fs2[1]()
 fs2[2]()
+//Logs 0 1 2
