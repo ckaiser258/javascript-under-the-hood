@@ -51,3 +51,31 @@ fs[2]()
 //The functions are only able to tell you what is in memory RIGHT NOW. Not at the time the function was created.
 //Only right now, when we are executing the function.
 
+
+//Here's some ways we can write this in a way that DOES log 1 2 3
+//With ES6, we can use let.
+function buildFunctions2() {
+
+  var arr = []
+
+  for (var i = 0; i < 3; i++) {
+    let j = i 
+    //Let is scoped into the block (the curly braces).
+    //So each time the for loop runs, we are making j a new variable in memory.
+
+    arr.push(
+      function() {
+        console.log(j)
+      }
+
+    )
+
+  }
+  return arr
+}
+
+var fs2 = buildFunctions2()
+
+fs2[0]()
+fs2[1]()
+fs2[2]()
