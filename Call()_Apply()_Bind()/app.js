@@ -56,3 +56,33 @@ console.log(person.getFullName.apply(person2))
 
 //This allows you to grab methods from other objects and use them.
 //As long as you have similar property names so the function can use them.
+
+//Function currying
+//Creates a copy of a function but with some preset parameters
+function multiply(a, b) {
+  return a*b
+}
+
+var multiplyByTwo = multiply.bind(this, 2)
+
+//With bind() you're creating a new copy of the function. Not executing it right away
+//Giving parameters to bind() sets permanent values to the passed in parameters when the copy is made
+
+//So what we're saying here is the first parameter will always be 2 in any copy of this function.
+//Essentially the same thing as setting a = 2 inside the function.
+
+console.log(multiplyByTwo(4))
+//Multiplies 4 by 2.
+//Logs 8.
+
+var multiplyByTwo2 = multiply.bind(this, 2, 2)
+console.log(multiplyByTwo2(4))
+//Logs 4.
+//'this' is now an extra parameter since we've permanently set both variables to 2.
+
+//Function currying is very useful in mathematical situations.
+//It allows you to have some fundamental functions that you can then build on with other preset parameters.
+
+var multiplyByThree = multiply.bind(this, 3)
+console.log(multiplyByThree(4))
+//Logs 12.
