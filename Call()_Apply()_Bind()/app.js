@@ -41,3 +41,18 @@ logName2.call(person, 'en', 'es')
 
 logName2.apply(person, ['en', 'es'])
 //.call() and .apply() are the exact same thing, except .apply() expects an array for its parameters
+
+//Function borrowing
+var person2 = {
+  firstname: 'Jane',
+  lastname: 'Doe'
+}
+
+console.log(person.getFullName.apply(person2))
+//This is function borrowing.
+//We've taken the function from the person object
+//and changed the 'this' keyword it uses to be person2 instead.
+//Can do the same thing with call()
+
+//This allows you to grab methods from other objects and use them.
+//As long as you have similar property names so the function can use them.
