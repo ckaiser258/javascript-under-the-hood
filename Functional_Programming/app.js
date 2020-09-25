@@ -65,3 +65,7 @@ console.log(arr5)
 //Or how can I return my functions from functions in order to greatly simplify things?
 
 //Be careful to not mutate data from the tiny functions, try to return something new.
+
+//Underscore and Lodash are very popular websites that have tons of 
+//functional programming source code.
+
