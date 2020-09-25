@@ -67,5 +67,15 @@ console.log(arr5)
 //Be careful to not mutate data from the tiny functions, try to return something new.
 
 //Underscore and Lodash are very popular websites that have tons of 
-//functional programming source code.
+//functional programming source code. 
+//(Fairly outdated now though due to ES6)
 
+var arr6 = _.map(arr1, function(item) {return item * 3})
+console.log(arr6)
+//Logs [3,6,9].
+
+var arr7 = _.filter([2,3,4,5,6,7], function(item) {return item % 2 === 0})
+console.log(arr7)
+//Logs [2,4,6]
+
+//Remember now that ES6 is out we don't really need this.
