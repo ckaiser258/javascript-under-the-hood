@@ -28,3 +28,28 @@ console.log(c.getMonth())
 //This is actually:
 console.log(new Date("3/1/2020").getMonth())
 //And .getMonth() is coming from the Date prototype.
+
+//We can add new features to these prototypes.
+String.prototype.isLengthGreaterThan = function(limit) {
+  return this.length > limit
+}
+
+console.log("Colton".isLengthGreaterThan(3))
+//Logs true.
+//"Colton" was converted to a string object automatically.
+//String now has our isLengthGreaterThan() function on its prototype, so all strings now have access to this method.
+
+//Many libraries use this concept to add features.
+
+Number.prototype.isPositive = function() {
+  return this > 0
+}
+
+//console.log(3.isPositive())
+//This throws an error because, while JavaScript can convert strings to objects automatically,
+//it doesn't do so for numbers.
+
+var d = new Number(3)
+console.log(d.isPositive())
+//Logs true.
+//This works since we made used the Number constructor to make 3 an object.
