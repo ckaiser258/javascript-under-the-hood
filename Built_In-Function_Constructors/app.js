@@ -53,3 +53,27 @@ var d = new Number(3)
 console.log(d.isPositive())
 //Logs true.
 //This works since we made used the Number constructor to make 3 an object.
+
+//Built-in function constructors for primitive types can be dangerous.
+
+var e = 5
+
+var f = new Number(5)
+
+console.log(e == f)
+//Logs true because == tries to coerce the two values to the same type
+
+console.log(e === f)
+//Logs false. They are not equal!
+//e is a primitive and f is an object.
+
+//This is why it's better in general to not use built-in function constructors.
+//Use literals or actual primitive values.
+
+//moment.js is a library that you should use for dealing with dates instead of using the Date constructor.
+
+//Sometimes built-in constructor functions can be useful for conversion.
+//Since they're still just functions, we can take out the new keyword.
+var g = Number("3")
+console.log(g)
+//Logs 3.
