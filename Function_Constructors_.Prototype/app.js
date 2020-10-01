@@ -48,3 +48,23 @@ console.log(john.getFormalFullName())
 //So adding getFullName() inside the Person constructor would cause every object
 //created by it to have their own copy of getFullName(), which can cost lots of memory.
 //But adding it to the .prototype means you only have one.
+
+//With ES6, we can set up objects with the class syntax, so this changes things a bit:
+class Person2 {
+  constructor(first, last) {
+    this.name = {
+      first,
+      last
+    };
+  }
+
+  greeting() {
+    console.log(`Hi! I'm ${this.name.first}`);
+  };
+
+  farewell() {
+    console.log(`${this.name.first} has left the building. Bye for now!`);
+  };
+}
+//Now the constructor and methods are separate anways.
+//However, .prototype can still be used in older code and should understand how it works.
