@@ -16,13 +16,13 @@ var logName = function(lang1, lang2) {
 
 var logPersonName = logName.bind(person)
 logPersonName()
-//We pass the bind() function whatever we want to be the "this" variable when the function runs
+//We pass the bind() function whatever we want to be the "this" variable when the function runs.
 
 //The reason we're not doing logName().bind is because we're simply using the function as
 //an object and accessing its built-in bind() property.
 
 //The bind() function returns a copy of logName and sets it up so whenever it is run,
-//it has person as the 'this' variable
+//it has person as the 'this' variable.
 
 var logName2 = function(lang1, lang2) {
 
@@ -32,7 +32,10 @@ var logName2 = function(lang1, lang2) {
 }
 
 var logPersonName2 = logName2.bind(person)
-logPersonName2('en')
+logPersonName2('en', 'es')
+//Logged: John Doe
+//Arguments: en es
+//--------------
 
 logName2.call(person, 'en', 'es')
 //.call() is the same thing as invoking a function "()"
